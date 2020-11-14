@@ -13,6 +13,8 @@
     grid-template-rows: repeat(5,1fr);
 }
 .button{
+    color: white;
+    font-size: 22px;
     background-color: rgb(8, 8, 80);
     border: 1px solid white;
     padding: 1em;
