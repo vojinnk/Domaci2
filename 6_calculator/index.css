@@ -1,0 +1,100 @@
+*{
+    box-sizing: border-box;
+}
+.container{
+    width: 400px;
+    height: 500px;
+    background-color: rgb(3, 3, 43);
+    color: white;
+    font-size: 22px;
+    margin: 5%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(5,1fr);
+}
+.button{
+    background-color: rgb(8, 8, 80);
+    border: 1px solid white;
+    padding: 1em;
+    align-self: center;
+    justify-self: center;
+}
+#entry{
+    margin:5% 0;
+    width: 90%;
+    padding: 1em;
+    align-self: center;
+    justify-self: center;
+    grid-column: 2 / span 3;
+    grid-row: 1;
+    border: 1px solid white;
+}
+#zero{
+    grid-column:1;
+    grid-row: 5;
+}
+#dot{
+    grid-column: 2;
+    grid-row: 5;
+}
+#equal{
+    grid-column: 3;
+    grid-row: 5;
+}
+#divide{
+    grid-column: 4;
+    grid-row: 5;
+}
+#mul{
+    grid-column: 4;
+    grid-row: 4;
+}
+#three{
+    grid-column: 3;
+    grid-row: 4;
+}
+#two{
+    grid-column: 2;
+    grid-row: 4;
+}
+#one{
+    grid-column: 1;
+    grid-row: 4;
+}
+#four{
+    
+    grid-column: 1;
+    grid-row: 3;
+}
+#five{
+    grid-column: 2;
+    grid-row: 3;
+}
+#six{
+    grid-column: 3;
+    grid-row: 3;
+}
+#minus{
+    grid-column: 4;
+    grid-row: 3;
+}
+#plus{
+    grid-column: 4;
+    grid-row: 2;
+}
+#nine{
+    grid-column: 3;
+    grid-row: 2;
+}
+#eight{
+    grid-column: 2;
+    grid-row: 2;
+}
+#seven{
+    grid-column: 1;
+    grid-row: 2;
+}
+#c{
+    grid-column: 1;
+    grid-row: 1;
+}
