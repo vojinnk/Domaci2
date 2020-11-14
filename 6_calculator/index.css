@@ -22,14 +22,25 @@
     justify-self: center;
 }
 #entry{
+    position: relative;
+    display: block;
+    font-size: 16px;
+    height: 80px;
     margin:5% 0;
     width: 90%;
-    padding: 1em;
+    padding: 0;
     align-self: center;
     justify-self: center;
     grid-column: 2 / span 3;
     grid-row: 1;
     border: 1px solid white;
+    
+    word-wrap: break-word;
+    overflow: hidden;
+}
+#entry p{
+    margin: 2%;
+    max-width: 96%;
 }
 #zero{
     grid-column:1;
