@@ -10,13 +10,18 @@ buttons.forEach(elem=>{
 })
 var entry = document.getElementById("entry");
 var calculated=true;
+var dot = false;
+function calculator(input){
+    
+}
 
 function clicked(e){
     e.stopPropagation();
-    if(calculated===true){
+    //if you want to reset to new calculation every time uncoment this below;
+    /*if(calculated===true){
         entry.innerText="";
         calculated=false;
-    }
+    }*/
    
     //console.log(e.target.id!=="equal" && e.target.id!=="c");
     if(e.target.id!=="equal" && e.target.id!=="c"){
@@ -24,12 +29,23 @@ function clicked(e){
             alert("too many characters");
             return; 
         }
-        
         if(e.target.id!=="plus" && e.target.id!=="minus" && e.target.id!=="mul" && e.target.id!=="divide"){
             //console.log(e.target);
+            
+        if(calculated===true){
+            calculated=false;
+            entry.innerText= e.target.innerText;
+        }
+        else{
             entry.innerText+= e.target.innerText;
+        }
             
         }else {
+            if(calculated===true) calculated=false;
+            //cant put operand at position 0
+            if(entry.innerText.length===0){
+                return;
+            }
            // console.log(entry.innerText[entry.innerText.length-1]);
             if(entry.innerText[entry.innerText.length-1]==="+" || entry.innerText[entry.innerText.length-1]==="-" || 
             entry.innerText[entry.innerText.length-1]==="*" || entry.innerText[entry.innerText.length-1]==="/" ){
@@ -42,16 +58,24 @@ function clicked(e){
     }else {
         if(e.target.id==="c"){
             //if we want clear then use this
-            //entry.innerText="";
-            //if you want to do back use tthis
-            entry.innerText=entry.innerText.slice(0,length-1);
+            if(calculated===true){
+                entry.innerText="";
+                calculated=false;
+            }//if you want to do back use tthis
+            else{
+                entry.innerText=entry.innerText.slice(0,length-1);
+            }
         }
         if(e.target.id==="equal"){
             //if last entry is operand, we make alert
             if(entry.innerText[entry.innerText.length-1]==="+" || entry.innerText[entry.innerText.length-1]==="-" || 
             entry.innerText[entry.innerText.length-1]==="*" || entry.innerText[entry.innerText.length-1]==="/" ){
                 alert("Your input is not finished, remove operand or add number after it!!")
-            }else{
+            }else if(entry.innerText.length===0){
+                return;
+            }
+
+            else{
                 
                 var res = eval(entry.innerText);
                 entry.innerText=res;
