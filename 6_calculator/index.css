@@ -29,19 +29,20 @@
     display: block;
     font-size: 16px;
     height: 80px;
-    margin:5% 0;
+    margin:5 % 0;
     width: 90%;
-    padding: 0;
+    padding:0.5em;
     align-self: center;
     justify-self: center;
     grid-column: 2 / span 3;
     grid-row: 1;
     border: 1px solid white;
-    
     word-wrap: break-word;
     overflow: hidden;
 }
 #entry p{
+    padding: 1em;
+    font-size: 16px;
     margin: 2%;
     max-width: 96%;
 }
