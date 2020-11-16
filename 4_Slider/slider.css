@@ -42,14 +42,15 @@ i:hover{
 img{
     width: 100%;
     display: none;
+  
     border-radius: 10px;
-    transition: display linear 2s;
 }
 img:hover{
     opacity: 0.8;
     cursor: pointer;
 }
 img.active{
+    
     display: block;
 }
 .fullScr{
