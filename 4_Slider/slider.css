@@ -16,7 +16,8 @@ header{
     align-items: center;
     justify-content: center;
     flex-direction: row;
-    width: 100%;
+    width: 98%;
+    margin: 0;
     
     
 }
