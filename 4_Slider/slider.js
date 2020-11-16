@@ -11,13 +11,18 @@ document.addEventListener("keyup",changeImage);
 var hover = false;
 var imgDiv = document.querySelector(".image-container");
 console.log(imgDiv);
-imgDiv.addEventListener("mouseenter",function() {
-    hover=true;
-});
-imgDiv.addEventListener("mouseleave",function(){
-    hover=false;
-});
+var isFull = false;
 
+imgDiv.addEventListener("mouseenter",mouseIn);
+imgDiv.addEventListener("mouseleave",mouseOut);
+imgDiv.addEventListener("click",fullScreen);
+
+function mouseIn(e) {
+    hover=true;
+}
+function mouseOut(e){
+    hover=false;
+}
 
 function changeImage(e){
     e.stopPropagation();
@@ -33,7 +38,14 @@ function changeImage(e){
             }else if(e.key==="ArrowLeft"){
                 direction===1;
             }
-        }else return;
+        }else if(isFull){
+            if(e.key==="ArrowRight"){
+                direction===-1;
+            }else if(e.key==="ArrowLeft"){
+                direction===1;
+            }
+        }
+        else return;
     }
 
     
@@ -67,11 +79,28 @@ function changeImage(e){
     
     
 }
+
 function getCurrent(images){
    for(let i=0;i<images.length;i++){
        if(images[i].classList.contains("active")){
            return i;
        }
    }
+}
+
+function fullScreen(e){
+    e.stopPropagation();
+    isFull=true;
+    var main = document.getElementById("main");
+    main.classList.replace("container","fullScr");
+
+}
+var close = document.getElementById("close");
+close.addEventListener("click",closeFS);
+function closeFS(e){
+    e.stopPropagation();
+    isFull=false;
+    var main = document.getElementById("main");
+    main.classList.replace("fullScr","container")
 }
 
