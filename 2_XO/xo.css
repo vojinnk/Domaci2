@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(#eeaeca,#94bbe9);
+}
+table{
+    border-collapse: collapse;
+    
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+}
+th{
+    font-size: 30px;
+    width: 100%;
+    height: 80px;
+}
+td{
+    border: 4px solid white;
+    border-collapse: collapse;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+}
+#one,#two,#three{
+    border-top: none;
+}
+#one,#four,#seven{
+    border-left: none;
+}
+#seven,#eight,#nine{
+    border-bottom:none ;
+}
+#three,#six,#nine{
+   border-right: none;
+}
