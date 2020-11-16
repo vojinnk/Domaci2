@@ -49,7 +49,7 @@ function initialize(){
 }
 
 function game(position,box){
-    console.log(position + " " +box.id);
+    //console.log(position + " " +box.id);
     //box.innerText = position;
     if(table[position]===0){
         table[position]=player;
