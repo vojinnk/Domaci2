@@ -6,7 +6,7 @@ boxes.forEach(elem =>{
 })
 
 function clicked(e){
-    console.log(e.target);
+   // console.log(e.target);
     switch(e.target.id){
         case "one":
             game(1,e.target);
@@ -41,11 +41,16 @@ function clicked(e){
 }
 
 var player=1;
+var moveNr=1;
 //const table=[[0,0,0],[0,0,0],[0,0,0]];
 var table=[0,0,0,0,0,0,0,0,0,0];
 function initialize(){
     table=[0,0,0,0,0,0,0,0,0,0];
     player=1;
+    moveNr=0;
+    boxes.forEach(elem=>{
+        elem.innerText="";
+    })
 }
 
 function game(position,box){
@@ -53,10 +58,17 @@ function game(position,box){
     //box.innerText = position;
     if(table[position]===0){
         table[position]=player;
-        box.innerText = player;
+        if(player===1) box.innerText="X";
+        else box.innerText="O";
+        moveNr++;
         if(checkWin(player)){
-            setTimeout(alert(player + "wins!!!"),0)
-            initialize();
+            setTimeout(function(){
+                if(player===1){
+                    alert("X WINS!");
+                }else alert("O WINS!")
+                initialize();
+            },0);
+            
         }else{
             if(player===1) player =2;
             else player=1;
