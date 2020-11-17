@@ -10,13 +10,20 @@
     <main>
         <div id="top">
             <ul>
-                <li>Pomodoro</li>
-                <li>Short Break</li>
-                <li>Long Break</li>
+                <li id="pomodoro" class="active">Pomodoro</li>
+                <li id="short">Short Break</li>
+                <li id="long">Long Break</li>
             </ul>
         </div>
         <div id="clock">
-
+            <div id="time">
+                <span id="minutes">25</span><span>:</span><span id="seconds">00</span>
+            </div>
+            <div id="buttons"> 
+                <button id="start" type="submit" value="start" name="start">Start</button>
+                <button id="stop" name="stop" value="stop" type="submit">Stop</button>
+                <button id="reset" name="reset" type="submit" value="reset">Reset</button>
+            </div>
         </div>
     </main>
 
