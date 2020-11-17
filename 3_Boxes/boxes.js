@@ -1,15 +1,44 @@
-var boxes = document.querySelectorAll(".box");
-document.addEventListener("click", function(e){
-    console.log(e.target);
+
+var userEntry="";
+while(userEntry==="" || userEntry===null){
+    var userEntry=prompt("Enter number of boxes","10");
+    if(isNaN(userEntry) || userEntry==="" || userEntry===null){
+        alert("You need to input a number!");
+        userEntry=null;
+    }
+     
     
+}
+//console.log(userEntry)
+var container = document.querySelector(".container");
+
+
+for(let i=0;i<eval(userEntry);i++){
+    addBox();
+}
+function addBox(){
+    var newBox = document.createElement("div");
+    newBox.classList.add("box");
+    var container = document.querySelector(".container");
+    container.appendChild(newBox);
+    boxes = document.querySelectorAll(".box");
+    boxFunctionality();
+    
+}
+
+function boxFunctionality(){
+    boxes.forEach(elem=>{
+        elem.addEventListener("click",clicked);
+    })
+}
+
+
+document.addEventListener("click", function(e){
+    //console.log(e.target);
     var active=document.querySelectorAll(".active");
     if(active.length!==0){
         active[0].classList.remove("active");
     }
-})
-
-boxes.forEach(elem=>{
-    elem.addEventListener("click",clicked);
 })
 
 
