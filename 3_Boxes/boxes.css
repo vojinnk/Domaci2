@@ -33,6 +33,20 @@ header{
     border: 2px solid black;
 
 }
+.close{
+   
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -28px;;
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+}
 .active {
     border:3px solid red ;
+}
+.active .close{
+    display: block;
+    
 }
