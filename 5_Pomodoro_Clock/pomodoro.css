@@ -97,6 +97,11 @@ button:hover{
 button:focus{
     outline: none;
 }
+button:active {
+    background: #e5e5e5;
+    box-shadow: inset 0px 0px 5px #c1c1c1;
+     outline: none;
+  }
 
 @media only screen and (min-width:769px){
     h1{

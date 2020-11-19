@@ -6,7 +6,10 @@ var short =document.querySelector("#short");
 var long =document.querySelector("#long");
 var active=document.querySelector(".active");
 var title = document.title;
+var audioFile = new Audio('./alarm-frenzy-493.mp3');
+
 //console.log(title);
+
 pomodoro.addEventListener("click",changeF);
 short.addEventListener("click",changeF);
 long.addEventListener("click",changeF);
@@ -46,10 +49,13 @@ function setTime(active){
 
     }
 }
+
 function titleTime(){
     document.title="(" + min.innerText + ":" + sec.innerText + ") " + title;
 }
+
 setTime(active);
+
 function displayTime(seconds){
     var m = Math.floor(seconds/60);
     var s = seconds%60;
@@ -61,6 +67,7 @@ function displayTime(seconds){
     
 
 }
+
 function changeF(e){
     e.stopPropagation();
     
@@ -69,6 +76,7 @@ function changeF(e){
     active=e.target;
     resetTime(e);
 }
+
 var countdown;
 function timer(seconds){
     var ms = seconds*1000;
@@ -84,6 +92,7 @@ function timer(seconds){
         if(timeLeft<=0){
             //console.log("Succes")
            // console.log(timeLeft);
+           audioFile.play();
             clearInterval(countdown);
             return;
         }
@@ -91,6 +100,7 @@ function timer(seconds){
     
 
 }
+
 function startTime(e){
     e.stopPropagation();
     if(timeLeft===0){
@@ -98,12 +108,14 @@ function startTime(e){
     }
     timer(timeLeft);
 }
+
 function resetTime(e){
     stopTime();
     setTime(document.querySelector(".active"));
     document.title=title;
 
 }
+
 function stopTime(){
     
     clearInterval(countdown);
