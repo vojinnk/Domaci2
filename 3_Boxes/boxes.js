@@ -21,7 +21,7 @@ function addBox(){
     var newBox = document.createElement("div");
     newBox.classList.add("box");
     var container = document.querySelector(".container");
-    newBox.innerHTML="<i class=\"material-icons close\" >close</i>";
+    newBox.innerHTML="<span></span>\n<i class=\"material-icons close\" >close</i>";
     newBox.addEventListener("click",clicked,{capture: false});
     container.appendChild(newBox);
   
@@ -58,7 +58,7 @@ document.addEventListener("click", function(e){
 function clicked(e){
     e.stopPropagation();
    //console.log(e.target.classList.contains("material-icons"));
-   if(e.target.classList.contains("material-icons")) return;
+   if(e.target.classList.contains("material-icons") ) return;
     //console.log(e.eventPhase);
     
 
@@ -77,8 +77,13 @@ function inputF(e){
     console.log(e);
     var active = document.querySelector(".active");
     if((e.keyCode >= 65 && e.keyCode < 91) || e.keyCode===32){
-        active.innerText=e.key;
-        active.innerHTML+="<i class=\"material-icons close\" >close</i>";
+        
+        //console.log(active);
+        active.firstChild.innerText=e.key;
+        //active.innerHTML= "<span>"+e.key+"</span>";
+       // active.innerHTML+="<i class=\"material-icons close\" >close</i>";
+        
+        console.log(active.firstChild.textContent);
         
     }else{
         alert("Wrong input");

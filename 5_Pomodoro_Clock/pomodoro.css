@@ -83,18 +83,20 @@ li:hover{
     border: 1px solid rgb(3, 43, 3);
 }
 #stop{
-    background-color: red;
+    background-color: rgb(214, 0, 0);
     border: 1px solid rgb(128, 0, 0);
 }
 #reset{
     background-color: rgb(156, 156, 156);
     border: 1px solid rgb(75, 74, 74);
 }
-#start:hover,#stop:hover,#reset:hover{
-    opacity: 0.8;
+button:hover{
+    opacity: 0.75;
     cursor: pointer;
 }
-
+button:focus{
+    outline: none;
+}
 
 @media only screen and (min-width:769px){
     h1{
