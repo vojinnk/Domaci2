@@ -37,16 +37,17 @@ var timeLeft = 25*60;
 function setTime(active){
     //console.log("test");
     
+    //bellow are setted inital times for every timer in seconds
     if(active===pomodoro){
-        timeLeft=5;
+        timeLeft=25*60;
          displayTime(timeLeft);
 
     }else if(active===short){
-        timeLeft=12;
+        timeLeft=5*60;
         displayTime(timeLeft);
 
     }else if(active===long){
-     timeLeft=7;
+     timeLeft=10*60;
      displayTime(timeLeft);
 
     }
