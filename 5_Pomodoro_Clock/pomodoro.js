@@ -7,6 +7,8 @@ var long =document.querySelector("#long");
 var active=document.querySelector(".active");
 var title = document.title;
 var audioFile = new Audio('./alarm-frenzy-493.mp3');
+//had problems with calling timer function multiple times!!!
+var activated = false;
 
 //console.log(title);
 
@@ -77,7 +79,7 @@ function changeF(e){
     resetTime(e);
 }
 
-var countdown;
+let countdown;
 function timer(seconds){
     var ms = seconds*1000;
     var now = Date.now();
@@ -88,28 +90,41 @@ function timer(seconds){
         displayTime(timeLeft);
         titleTime();
         
-        //console.log(timeLeft);
+        //console.log(countdown);
         if(timeLeft<=0){
             //console.log("Succes")
-           // console.log(timeLeft);
-           audioFile.play();
+            console.log(timeLeft);
             clearInterval(countdown);
+            audioFile.play();
+            
             return;
         }
     },1000);
     
 
 }
-
+//problem was here,with multiple click on start when timer already active!
 function startTime(e){
     e.stopPropagation();
-    if(timeLeft===0){
-        setTime(active);
+
+    if(activated===false){
+        if(timeLeft===0){
+            setTime(active);
+        }
+        activated=true;
+        console.log(activated);
+        timer(timeLeft);
     }
-    timer(timeLeft);
+    else return;
 }
 
 function resetTime(e){
+    
+    //this feature is added so we can stop alert sound before it ends by clicking this button or stop button
+    audioFile.pause();
+    audioFile.currentTime = 0;
+
+    e.stopPropagation();
     stopTime();
     setTime(document.querySelector(".active"));
     document.title=title;
@@ -117,7 +132,11 @@ function resetTime(e){
 }
 
 function stopTime(){
+    //this feature is added so we can stop alert sound before it ends
+    audioFile.pause();
+    audioFile.currentTime = 0;
     
+    activated=false;
     clearInterval(countdown);
     displayTime(timeLeft);
 
