@@ -7,6 +7,7 @@ boxes.forEach(elem =>{
 
 function clicked(e){
    // console.log(e.target);
+   //console.log(moveNr);
     switch(e.target.id){
         case "one":
             game(1,e.target);
@@ -41,7 +42,7 @@ function clicked(e){
 }
 
 var player=1;
-var moveNr=1;
+var moveNr=0;
 //const table=[[0,0,0],[0,0,0],[0,0,0]];
 var table=[0,0,0,0,0,0,0,0,0,0];
 function initialize(){
@@ -61,6 +62,7 @@ function game(position,box){
         if(player===1) box.innerText="X";
         else box.innerText="O";
         moveNr++;
+       
         if(checkWin(player)){
             setTimeout(function(){
                 if(player===1){
@@ -72,6 +74,12 @@ function game(position,box){
         }else{
             if(player===1) player =2;
             else player=1;
+        }
+        if(moveNr===9){
+           // console.log("draw");
+            initialize();
+            wasDraw();
+            return;
         }
     }else{
         return;
@@ -90,4 +98,12 @@ function checkWin(player){
         return true;
     }
     else return false;
+}
+
+function wasDraw(){
+    document.getElementById("infop").innerText = "Game was a draw!!!";
+
+    setTimeout(function(){
+        document.getElementById("infop").innerText = "";
+    },5000)
 }
