@@ -14,10 +14,9 @@ function search(e){
         //console.log(elem.firstChild);
         if(elem.firstChild.includes(input)){
             
-            elem.style.display:block;
+            elem.style.display=block;
         }else{
-            elem.style.display:none;
-        }
+            elem.style.display=none;
 
     })
     
