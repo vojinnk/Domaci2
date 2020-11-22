@@ -101,7 +101,16 @@ function action(e){
 
 function keyAction (e){
     var curr = document.activeElement;
-    var items = document.querySelectorAll("li");
+    var items = Array.from(document.querySelectorAll("li"));
+    var res=[];
+    items.forEach(elem=>{
+        if(elem.style.display!="none"){
+            res.push(elem);
+            
+        }
+    })
+    console.log(res)
+   // console.log(items);
     if(e.keyCode===13){
         if(curr.nodeName!=="LI"){
             //console.log(curr)
@@ -116,19 +125,24 @@ function keyAction (e){
     }
 
    if(e.keyCode===38 || e.keyCode===40){
+     //  console.log(items);
        if(curr.nodeName !=="LI"){
-           items[0].focus();
+           res[0].focus();
        }else{
-           if(curr===items[0] && e.keyCode===38){
-               items[items.length-1].focus();
+           if(curr===res[0] && e.keyCode===38){
+               res[res.length-1].focus();
                 
-           }else if(curr===items[items.length-1] && e.keyCode===40){
-                items[0].focus();
+           }else if(curr===res[res.length-1] && e.keyCode===40){
+                res[0].focus();
            }else{
                if(e.keyCode===38){
-                  curr.previousElementSibling.focus();
+                    //curr.previousElementSibling.focus();
+                    //console.log(curr);
+                    //console.log(res[res.indexOf(curr)-1]);
+                    res[res.indexOf(curr)-1].focus();
                }else if(e.keyCode===40){
-                    curr.nextElementSibling.focus();
+                    res[res.indexOf(curr)+1].focus();
+                    //curr.nextElementSibling.focus();
                }
            }
        }
