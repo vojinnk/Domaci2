@@ -119,24 +119,31 @@ return chalfive;
 // /*** Uncomment these to check your work! ***/
 const called = function() { console.log('hello') };
 const afterCalled = after(3, called);
-afterCalled(); // => nothing is printed
-afterCalled(); // => nothing is printed
-afterCalled(); // => 'hello' is printed
+//afterCalled(); // => nothing is printed
+//afterCalled(); // => nothing is printed
+//afterCalled(); // => 'hello' is printed
 
 
 // CHALLENGE 6
 function delay(func, wait) {
-
+  setTimeout(()=>func(),wait);
 }
 
 
 // CHALLENGE 7
 function rollCall(names) {
-
+  var c=0;
+function all(){
+  if(c<names.length){
+        console.log(names[c]);
+        c++;
+  }else console.log("Everyone accounted for")
+}
+return all;
 }
 
 // /*** Uncomment these to check your work! ***/
-// const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
+const rollCaller = rollCall(['Victoria', 'Juan', 'Ruth'])
 // rollCaller() // => should log 'Victoria'
 // rollCaller() // => should log 'Juan'
 // rollCaller() // => should log 'Ruth'
@@ -145,6 +152,18 @@ function rollCall(names) {
 
 // CHALLENGE 8
 function saveOutput(func, magicWord) {
+    var all=[];
+    function cheight(input){
+    if(input===magicWord){
+      return all;
+    }else{
+      var obj={};
+        obj[input]=func(input);
+      all.push(obj);
+      return func(input);
+    }
+  }
+return cheight;
 
 }
 
@@ -152,13 +171,24 @@ function saveOutput(func, magicWord) {
 // const multiplyBy2 = function(num) { return num * 2; };
 // const multBy2AndLog = saveOutput(multiplyBy2, 'boo');
 // console.log(multBy2AndLog(2)); // => should log 4
-// console.log(multBy2AndLog(9)); // => should log 18
+//console.log(multBy2AndLog(9)); // => should log 18
 // console.log(multBy2AndLog('boo')); // => should log { 2: 4, 9: 18 }
 
 
 // CHALLENGE 9
 function cycleIterator(array) {
-
+      var c=0;
+    function it(){
+        if(c<array.length){
+          var p=c;
+        c++;
+        return array[p];
+      }else{
+        c=0;
+        return array[c];
+      }
+  }
+return it;
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -171,19 +201,31 @@ function cycleIterator(array) {
 
 
 // CHALLENGE 10
+//not sure that i done what is asked for!!! mozda ...args umjesto input tj ...input???
 function defineFirstArg(func, arg) {
-
+  function df(input){
+  return func(arg,input);
+}
+return df;
 }
 
 // /*** Uncomment these to check your work! ***/
-// const subtract = function(big, small) { return big - small; };
-// const subFrom20 = defineFirstArg(subtract, 20);
+//const subtract = function(big, small) { return big - small; };
+//const subFrom20 = defineFirstArg(subtract, 20);
 // console.log(subFrom20(5)); // => should log 15
 
 
 // CHALLENGE 11
 function dateStamp(func) {
-
+  var date = Date(Date.now());
+function chalel(...arg){
+  var output = func(...arg);
+  return {
+    date:date.toString(),
+    output:output
+  }
+}
+return chalel
 }
 
 // /*** Uncomment these to check your work! ***/
@@ -194,14 +236,33 @@ function dateStamp(func) {
 
 // CHALLENGE 12
 function censor() {
+var all=[];
+function chas(first,second){
+  //console.log(arguments.length);
+  if(arguments.length>1){
+    var obj={
+      first:first,
+      second:second
+    }
+    all.push(obj);
+  }else{
+    console.log(first);
+    var news=first;
+    for(let i=0;i<all.length;i++){
+      news=news.replaceAll(all[i].first,all[i].second);
+    }
+    return news;
+  }
+}
+return chas;
 
 }
 
 // /*** Uncomment these to check your work! ***/
-// const changeScene = censor();
-// changeScene('dogs', 'cats');
-// changeScene('quick', 'slow');
-// console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // => should log 'The slow, brown fox jumps over the lazy cats.'
+//const changeScene = censor();
+//changeScene('dogs', 'cats');
+//changeScene('quick', 'slow');
+//console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // => should log 'The slow, brown fox jumps over the lazy cats.'
 
 
 // CHALLENGE 13
